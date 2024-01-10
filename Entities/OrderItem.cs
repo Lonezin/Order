@@ -19,5 +19,9 @@ namespace Course.Entities
         {
             return Price*Quantity;
         }
+        public override string ToString()
+        {
+            return Product + ", $" + Price + ", Quantity: " + Quantity + ", Subtotal: " + SubTotal();
+        }
     }
 }

@@ -12,7 +12,10 @@ namespace Course.Entities
         {
             Produto = produto;
             Price = price;
-        }       
-        
+        }
+        public override string ToString()
+        {
+            return Produto;
+        }
     }
 }

@@ -1,3 +1,5 @@
+using System.Globalization;
+using System.Text;
 using Course.Entities.Enums;
 
 namespace Course.Entities
@@ -35,6 +37,19 @@ namespace Course.Entities
             }
             return sum;
         }
-
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Order moment " + Date.ToString("dd-MM-yyyy HH:mm:ss"));
+            sb.AppendLine("Order status " + Status);
+            sb.AppendLine("Client: " + Client.Name + " ("+ Client.BirthDate +") - " + Client.Email);
+            sb.AppendLine("Order items:");
+            foreach (OrderItem item in Items)
+            {
+                sb.AppendLine(item.ToString());
+            }
+            sb.AppendLine("Total price: " + Total().ToString("F2",CultureInfo.InvariantCulture));
+            return sb.ToString();
+        }
     }
 }
